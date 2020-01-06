@@ -1,0 +1,56 @@
+<html ng-app="myApp">
+<head>
+    <link rel="stylesheet" href="css/piechartstyling.css"/>
+    <script src="js/pieChartScript.js"></script>
+    <script src= "js/lib/angular.min.js"></script>
+    <script src="js/app.js"></script>
+</head>
+
+<body ng-controller="MainController">
+    <script type="text/javascript">
+       // new PieChart().createChart();
+    </script>
+   
+    <div class="container">
+        <table  cellpadding="5" cellspacing="10">
+            <thead>
+                <tr>
+                    <th>Label</th>
+                    <th>Value</th>
+                    <th>Color</th>
+                    <th><input type="submit" class="btn" value="Add New" ng-click="addNewData()" /></th>
+                </tr>
+            </thead>
+            <tbody>
+                    <!--<tr>
+                        <td> <input type="text" ng-model="pieChartDetails[0].label" /> </td>
+                        <td> <input type="color" ng-model="pieChartDetails[0].color" /> </td>
+                        <td> <input type="text" ng-model="pieChartDetails[0].value" /></td>
+                        <td><input type="submit" value="Add New" ng-click="addNewData()" /></td>
+                    </tr>-->
+
+                    <tr ng-repeat="pieData in pieChartDetails">
+                        <td> <input type="text"  ng-model="pieChartDetails[$index].label"  />  </td>
+                        <td> <input type="number" ng-model="pieChartDetails[$index].value" />  </td> 
+                        <td> <input type="color" ng-model="pieChartDetails[$index].color" />  </td> 
+                        <td> <input type="button" value="Remove" ng-click="removeRow($index)"/> </td>
+                    </tr>
+               <tr>
+                   <td></td>
+                   <td></td>
+                   <td><input type="submit" value="Apply" ng-click="pieChart()" /></td>
+                   <td></td>
+               </tr>
+            </tbody>
+       </table>
+
+        <!--<div>
+            <input ng-hide="!pieChartDetails.length" type="button" ng-click="remove()" value="Remove"/>
+            <input type="submit" value="Add New" ng-click="addNewData()"/>
+        </div>-->
+    </div>
+
+</body>
+</html>
+
+
